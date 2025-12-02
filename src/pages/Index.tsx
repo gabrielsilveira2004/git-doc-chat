@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import DocSection from "@/components/DocSection";
+import DownloadSection from "@/components/DownloadSection";
 import DocChat from "@/components/DocChat";
 
 const Index = () => {
@@ -14,11 +15,12 @@ const Index = () => {
       <main>
         <Hero />
         <Features />
+        <DownloadSection />
         <DocSection onChatOpen={() => setIsChatOpen(true)} />
       </main>
-      <footer className="border-t py-8 mt-20">
+      <footer className="border-t-2 border-primary/20 py-8 mt-20 bg-gradient-to-b from-muted/30 to-background">
         <div className="container text-center text-sm text-muted-foreground">
-          <p>Git is a member of Software Freedom Conservancy</p>
+          <p>Git is a member of <span className="text-primary font-medium">Software Freedom Conservancy</span></p>
         </div>
       </footer>
       <DocChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
