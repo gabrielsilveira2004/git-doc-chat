@@ -1,12 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import DocSection from "@/components/DocSection";
+import DocChat from "@/components/DocChat";
 
 const Index = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header onChatOpen={() => setIsChatOpen(true)} />
+      <main>
+        <Hero />
+        <Features />
+        <DocSection onChatOpen={() => setIsChatOpen(true)} />
+      </main>
+      <footer className="border-t py-8 mt-20">
+        <div className="container text-center text-sm text-muted-foreground">
+          <p>Git is a member of Software Freedom Conservancy</p>
+        </div>
+      </footer>
+      <DocChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </div>
   );
 };
